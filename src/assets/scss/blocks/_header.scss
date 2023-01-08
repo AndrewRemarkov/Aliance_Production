@@ -1,0 +1,53 @@
+/* header */
+
+.navbar {
+  display: flex;
+  align-items: center;
+  background-color: rgb(59, 57, 57);
+  height: 94px;
+}
+
+.header {
+  color: $white;
+
+  &-logo {
+    padding: 25px 50px;
+  }
+
+  &-nav {
+    display: flex;
+    flex-basis: 100%;
+    list-style: none;
+    padding: 0 50px;
+    margin: 0;
+
+    &__item {
+      &:not(:last-child) {
+        margin-right: 50px;
+      }
+    }
+
+    &__link {
+      text-decoration: none;
+      font-weight: 400;
+      font-size: 16px;
+      color: inherit;
+    }
+  }
+
+  &-phone {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+    gap: 10px;
+    margin-right: 50px;
+    &__link {
+      text-decoration: none;
+      color: inherit;
+    }
+  }
+
+  &__button {
+    height: 100%;
+  }
+}
