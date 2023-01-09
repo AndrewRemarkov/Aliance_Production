@@ -5,11 +5,12 @@
   color: $white;
   background-color: $blue;
   border: none;
-  display: flex;
-  align-items: center;
   padding: 26px 60px;
-  justify-content: center;
-  gap: 10px;
-  flex-shrink: 0;
   cursor: pointer;
+}
+
+.separator {
+  width: 150px;
+  height: 2px;
+  background-color: $separator;
 }

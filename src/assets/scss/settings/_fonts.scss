@@ -1,3 +1,13 @@
 /* Стили для шрифтов */
+@font-face {
+  font-family: "Bebas Neue Regular";
+  src: url("../fonts/BebasNeueRegular.eot");
+  src: url("../fonts/BebasNeueRegular.eot?#iefix") format("embedded-opentype"),
+    url("../fonts/BebasNeueRegular.woff") format("woff"),
+    url("../fonts/BebasNeueRegular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
 $noto: "Noto Sans", sans-serif;
-$bebas: "Bebas Neue", cursive;
+$bebas: "Bebas Neue Regular";

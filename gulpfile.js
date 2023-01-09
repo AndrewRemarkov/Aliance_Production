@@ -10,7 +10,6 @@ const rigger = require("gulp-rigger");
 const sass = require("gulp-sass")(require("sass"));
 const cssnano = require("gulp-cssnano");
 const uglify = require("gulp-uglify");
-const plumber = require("gulp-plumber");
 const panini = require("panini");
 const imagemin = require("gulp-imagemin");
 const del = require("del");
@@ -76,17 +75,6 @@ function html() {
 
 function css() {
   return src(path.src.css, { base: srcPath + "assets/scss/" })
-    // .pipe(
-    //   plumber({
-    //     errorHandler: function (err) {
-    //       notify.onError({
-    //         title: "SCSS Error",
-    //         message: "Error: <%= error.message %>",
-    //       })(err);
-    //       this.emit("end");
-    //     },
-    //   })
-    // )
     .pipe(sass())
     .pipe(autoprefixer())
     .pipe(cssbeautify())
@@ -112,17 +100,6 @@ function css() {
 
 function js() {
   return src(path.src.js, { base: srcPath + "assets/js/" })
-    .pipe(
-      plumber({
-        errorHandler: function (err) {
-          notify.onError({
-            title: "JS Error",
-            message: "Error: <%= error.message %>",
-          })(err);
-          this.emit("end");
-        },
-      })
-    )
     .pipe(rigger())
     .pipe(dest(path.build.js))
     .pipe(uglify())
@@ -143,9 +120,6 @@ function images() {
         imagemin.gifsicle({ interlaced: true }),
         imagemin.mozjpeg({ quality: 75, progressive: true }),
         imagemin.optipng({ optimizationLevel: 5 }),
-        imagemin.svgo({
-          plugins: [{ removeViewBox: true }, { cleanupIDs: false }],
-        }),
       ])
     )
     .pipe(dest(path.build.images))
